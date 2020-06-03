@@ -12,6 +12,9 @@ function validateBst(tree) {
 }
 
 function validateBstHelper(tree, minValue, maxValue) {
+  // kind of have 2 bases cases. Each will stop the recursion
+  // either gets to the end, and its valid, or doesnt get to the end
+  // and its invalid
   if (tree === null) return true
   if (tree.value < minValue || tree.value >= maxValue) return false
   return (
