@@ -42,3 +42,23 @@ function bubbleSort(arr) {
   }
   return arr
 }
+
+// Round 3:
+function bubbleSort(array) {
+  // Write your code here.
+  let switchFlag = true
+  let counter = 0
+  while (switchFlag) {
+    switchFlag = false
+    for (let i = 1; i < array.length - counter; i++) {
+      if (array[i] < array[i - 1]) {
+        let temp = array[i - 1]
+        array[i - 1] = array[i]
+        array[i] = temp
+        switchFlag = true
+      }
+    }
+    counter++
+  }
+  return array
+}
