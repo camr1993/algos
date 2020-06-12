@@ -41,3 +41,23 @@ function findThreeLargestNumbers(array) {
   }
   return topThree
 }
+
+// Round 3:
+function findThreeLargestNumbers(array) {
+  // Write your code here.
+  const topThree = [-Infinity, -Infinity, -Infinity]
+  for (let i = 0; i < array.length; i++) {
+    let num = array[i]
+    if (num > topThree[2]) {
+      topThree[0] = topThree[1]
+      topThree[1] = topThree[2]
+      topThree[2] = num
+    } else if (num > topThree[1]) {
+      topThree[0] = topThree[1]
+      topThree[1] = num
+    } else if (num > topThree[0]) {
+      topThree[0] = num
+    }
+  }
+  return topThree
+}
