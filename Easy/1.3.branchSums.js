@@ -42,3 +42,26 @@ function branchSumsHelper(node, currentSum, arr) {
   branchSumsHelper(node.left, currentSum, arr)
   branchSumsHelper(node.right, currentSum, arr)
 }
+
+//Round 3:
+function branchSums(root) {
+  // Round 3
+  return branchSumsHelper(root, 0, [])
+}
+
+function branchSumsHelper(currentNode, currentSum, finalArray) {
+  if (!currentNode) {
+    // if you do it like this, then it would push 2 sums
+    // for the left null and the right null!
+    // finalArray.push(currentSum)
+    return
+  }
+  currentSum += currentNode.value
+  if (!currentNode.left && !currentNode.right) {
+    finalArray.push(currentSum)
+  }
+  branchSumsHelper(currentNode.left, currentSum, finalArray)
+  branchSumsHelper(currentNode.right, currentSum, finalArray)
+
+  return finalArray
+}

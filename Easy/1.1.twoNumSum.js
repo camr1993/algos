@@ -29,3 +29,17 @@ function twoNumberSum(array, targetSum) {
   }
   return []
 }
+
+// Round 3:
+function twoNumberSum(array, targetSum) {
+  const memo = {}
+  for (let i = 0; i < array.length; i++) {
+    let complement = targetSum - array[i]
+    if (memo[array[i]]) {
+      return [array[i], complement]
+    } else {
+      memo[complement] = true
+    }
+  }
+  return []
+}
