@@ -54,3 +54,27 @@ class Node {
   // this.name = 'A'
   // this.children = ['B', 'C', 'D']
 }
+
+//Round 3:
+class Node {
+  constructor(name) {
+    this.name = name
+    this.children = []
+  }
+
+  addChild(name) {
+    this.children.push(new Node(name))
+    return this
+  }
+
+  depthFirstSearch(array) {
+    array.push(this.name)
+    if (!this.children.length) {
+      return
+    }
+    for (let i = 0; i < this.children.length; i++) {
+      this.children[i].depthFirstSearch(array)
+    }
+    return array
+  }
+}
