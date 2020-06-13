@@ -21,3 +21,30 @@ function smallestDifference(arrayOne, arrayTwo) {
   }
   return smallest
 }
+
+// Round 2:
+function smallestDifference(arrayOne, arrayTwo) {
+  // Write your code here.
+  arrayOne.sort((a, b) => a - b)
+  arrayTwo.sort((a, b) => a - b)
+  let idxOne = 0
+  let idxTwo = 0
+  let pair = [arrayOne[0], arrayTwo[0]]
+  let diff = Infinity
+
+  while (idxOne < arrayOne.length && idxTwo < arrayTwo.length) {
+    let test = Math.abs(arrayOne[idxOne] - arrayTwo[idxTwo])
+    if (test < diff) {
+      diff = test
+      pair = [arrayOne[idxOne], arrayTwo[idxTwo]]
+    }
+    if (arrayOne[idxOne] < arrayTwo[idxTwo]) {
+      idxOne++
+    } else if (arrayOne[idxOne] > arrayTwo[idxTwo]) {
+      idxTwo++
+    } else {
+      return pair
+    }
+  }
+  return pair
+}

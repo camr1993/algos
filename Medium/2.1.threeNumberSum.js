@@ -20,3 +20,27 @@ function threeNumberSum(array, targetSum) {
   }
   return triplets
 }
+
+// Round 2:
+function threeNumberSum(array, targetSum) {
+  // Write your code here.
+  let newArr = []
+  array.sort((a, b) => a - b)
+  for (let i = 0; i < array.length; i++) {
+    let current = array[i]
+    let left = i + 1
+    let right = array.length - 1
+    while (left < right) {
+      let testSum = current + array[left] + array[right]
+      if (testSum < targetSum) {
+        left++
+      } else if (testSum > targetSum) {
+        right--
+      } else {
+        newArr.push([current, array[left], array[right]])
+        left++
+      }
+    }
+  }
+  return newArr
+}
