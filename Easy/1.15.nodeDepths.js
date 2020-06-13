@@ -34,3 +34,24 @@ function nodeDepthsHelper(currNode, depthSum) {
     )
   }
 }
+
+// Round 3:
+function nodeDepths(root) {
+  // Write your code here.
+  return nodeDepthsHelper(root, 0)
+}
+
+function nodeDepthsHelper(node, depth) {
+  if (!node.left && !node.right) {
+    return depth
+  }
+  let leftSum = 0
+  let rightSum = 0
+  if (node.left) {
+    leftSum = nodeDepthsHelper(node.left, depth + 1)
+  }
+  if (node.right) {
+    rightSum = nodeDepthsHelper(node.right, depth + 1)
+  }
+  return depth + leftSum + rightSum
+}

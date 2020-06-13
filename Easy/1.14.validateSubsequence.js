@@ -27,3 +27,17 @@ function isValidSubsequence(array, sequence) {
   }
   return false
 }
+
+function isValidSubsequence(array, sequence) {
+  // Write your code here.
+  let seqIdx = 0
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === sequence[seqIdx]) {
+      seqIdx++
+    }
+    if (seqIdx === sequence.length) {
+      return true
+    }
+  }
+  return false
+}
