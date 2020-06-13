@@ -37,3 +37,25 @@ function selectionSort(array) {
   }
   return array
 }
+
+// Round 3:
+function selectionSort(array) {
+  // Write your code here.
+  let idx = 0
+  while (idx < array.length) {
+    let min = array[idx]
+    let idxSwitch = idx
+    for (let i = idx; i < array.length; i++) {
+      if (array[i] < min) {
+        min = array[i]
+        idxSwitch = i
+      }
+    }
+    if (idx !== idxSwitch) {
+      array[idxSwitch] = array[idx]
+      array[idx] = min
+    }
+    idx++
+  }
+  return array
+}
