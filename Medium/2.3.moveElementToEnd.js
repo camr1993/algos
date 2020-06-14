@@ -18,3 +18,20 @@ function moveElementToEnd(array, toMove) {
   }
   return array
 }
+
+// Round 2:
+function moveElementToEnd(array, toMove) {
+  // Write your code here.
+  let count = 0
+  let idx = 0
+  while (count < array.length) {
+    if (array[idx] === toMove) {
+      let removed = array.splice(idx, 1)
+      array.push(removed[0])
+    } else {
+      idx++
+    }
+    count++
+  }
+  return array
+}
