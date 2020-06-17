@@ -29,3 +29,41 @@ function longestPeak(array) {
   }
   return longestPeakLength
 }
+
+// Round 2:
+function longestPeak(array) {
+  // Write your code here.
+  let longest = 0
+  for (let i = 1; i < array.length - 1; i++) {
+    let left = i - 1
+    let right = i + 1
+    if (isPeak(array[i], array[left], array[right])) {
+      let currentPeak = 3
+      let keepGoing = true
+      while (keepGoing) {
+        keepGoing = false
+        if (array[left - 1] < array[left]) {
+          currentPeak++
+          left--
+          keepGoing = true
+        }
+        if (array[right + 1] < array[right]) {
+          currentPeak++
+          right++
+          keepGoing = true
+        }
+      }
+      if (currentPeak > longest) {
+        longest = currentPeak
+      }
+    }
+  }
+  return longest
+}
+
+function isPeak(current, left, right) {
+  if (current > left && current > right) {
+    return true
+  }
+  return false
+}
