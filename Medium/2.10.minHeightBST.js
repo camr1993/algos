@@ -43,3 +43,22 @@ class BST {
     }
   }
 }
+
+// Round 2:
+function minHeightBst(array) {
+  // Write your code here.
+  let left = 0
+  let right = array.length - 1
+
+  return minHeightBstHelper(left, right, array)
+}
+
+function minHeightBstHelper(left, right, array) {
+  if (left > right) return null
+
+  let mid = Math.floor((left + right) / 2)
+  let bst = new BST(array[mid])
+  bst.left = minHeightBstHelper(left, mid - 1, array, bst)
+  bst.right = minHeightBstHelper(mid + 1, right, array, bst)
+  return bst
+}
