@@ -22,3 +22,26 @@ function validateBstHelper(tree, minValue, maxValue) {
     validateBstHelper(tree.right, tree.value, maxValue)
   )
 }
+
+// Round 2:
+class BST {
+  constructor(value) {
+    this.value = value
+    this.left = null
+    this.right = null
+  }
+}
+
+function validateBst(tree) {
+  // Write your code here.
+  return validateBstHelper(tree, -Infinity, Infinity)
+}
+
+function validateBstHelper(tree, minValue, maxValue) {
+  if (!tree) return true
+  if (tree.value >= maxValue || tree.value < minValue) return false
+  return (
+    validateBstHelper(tree.left, minValue, tree.value) &&
+    validateBstHelper(tree.right, tree.value, maxValue)
+  )
+}
