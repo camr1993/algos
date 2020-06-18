@@ -10,7 +10,7 @@ function permutationsHelper(array, currentPermutation, permutations) {
   } else {
     for (let i = 0; i < array.length; i++) {
       const newArray = [...array.slice(0, i), ...array.slice(i + 1)]
-      const newPermutation = [...currentPermutation, ...[array[i]]]
+      const newPermutation = [...currentPermutation, array[i]]
       permutationsHelper(newArray, newPermutation, permutations)
     }
   }
